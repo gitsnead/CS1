@@ -10,4 +10,19 @@ public class Menu {
     }
 
     // add the methods here
+    public void addMeal(String description) {
+        if (!this.meals.contains(description)) {
+            this.meals.add(description);
+        }
+    }
+
+    public void printMeals() {
+        for (String item : this.meals) {
+            System.out.println(item);
+        }
+    }
+
+    public void clearMenu() {
+        this.meals.clear();
+    }
 }
