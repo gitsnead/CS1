@@ -1,6 +1,8 @@
+
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         // Write test code here
@@ -11,6 +13,26 @@ public class Main {
         // The second takes care of even numbers and the third the odd numbers.
 
         // The tests does not work if you do not create the objects in the correct order
-
+        NumberStatistics stats = new NumberStatistics();
+        NumberStatistics evenStats = new NumberStatistics();
+        NumberStatistics oddStats = new NumberStatistics();
+        System.out.println("Type numbers:");
+        int inputInteger;
+        while (true) {
+            inputInteger = Integer.parseInt(reader.nextLine());
+            if (inputInteger == -1) {
+                break;
+            } else {
+                stats.addNumber(inputInteger);
+                if (inputInteger % 2 == 0) {
+                    evenStats.addNumber(inputInteger);
+                } else {
+                    oddStats.addNumber(inputInteger);
+                }
+            }
+        }
+        System.out.println("sum: " + stats.sum());
+        System.out.println("sum of even: " + evenStats.sum());
+        System.out.println("sum of odd: " + oddStats.sum());
     }
 }
