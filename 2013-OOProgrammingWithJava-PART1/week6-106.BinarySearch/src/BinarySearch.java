@@ -1,3 +1,5 @@
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 public class BinarySearch {
     public static boolean search(int[] array, int searchedValue) {
         int beginning = 0;
@@ -9,7 +11,12 @@ public class BinarySearch {
                 return true;
             }
 
-            // restrict the search area 
+            // restrict the search area
+            if (array[middle] < searchedValue) {
+                beginning = middle + 1;
+            } else {
+                end = middle - 1;
+            }
         }
         return false;
     }
